@@ -2,21 +2,16 @@
 using namespace std;
 int main()
 {
-    string n;
-    cin >>n;
-    int arr[4]={0};
-    int x =n.length()-1, y=3;
+    string s, p;
+    cin >>s>>p;
+    int n=0,i=0;
     do{
-        if(x>=0)
+        if(s[i]!=p[i])
         {
-            arr[y]=n[x]- '0';
-            x--;
+            n++;
         }
-        y--;
-    } while(y>=0);
-    for(int i=0; i<4; i++)
-    {
-        cout << arr[i];
-    }
+        i++;
+    }while(i<s.size());
+    cout<<n;
     return 0;
 }
