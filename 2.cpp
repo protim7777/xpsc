@@ -2,16 +2,27 @@
 using namespace std;
 int main()
 {
-    string s, p;
-    cin >>s>>p;
-    int n=0,i=0;
+    int t;
+    cin >> t;
     do{
-        if(s[i]!=p[i])
-        {
-            n++;
+        int n,k,p;
+        cin>>n>>k>>p;
+        int v_height=0,r_height=p,mx=0;
+        vector<int>h(n);
+        for(int i=0;i<n;++i){
+            cin>>h[i];
+            mx=max(mx, h[i]);
         }
-        i++;
-    }while(i<s.size());
-    cout<<n;
+        v_height=mx + k;
+        for(int h_val:h)r_height+=h_val;
+        r_height-=mx;
+        if(v_height>r_height)
+            cout<<"Ved"<<endl;
+        else if(v_height<r_height)
+            cout<<"Varun"<<endl;
+        else
+            cout<<"Equal"<<endl;
+        t--;
+    }while(t>0);
     return 0;
 }
